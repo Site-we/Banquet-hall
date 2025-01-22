@@ -7,3 +7,9 @@ window.addEventListener('load', () => {
         preloader.style.display = 'none';
     }, 3000); // Matches animation delay in CSS
 });
+
+// Handle form submission
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Message sent! We will get back to you soon.');
+});
