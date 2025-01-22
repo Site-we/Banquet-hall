@@ -116,4 +116,122 @@ header .nav-links a {
     margin-top: 20px;
 }
 
-/* Rest of CSS remains the same */
+/* About Section */
+#about {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+#about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Gallery Section */
+#gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Services Section */
+#services {
+    padding: 50px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service {
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 1.1em;
+}
+
+/* Testimonials Section */
+#testimonials {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.testimonial {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-style: italic;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
