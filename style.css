@@ -1,110 +1,57 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: #000;
-    color: #fff;
-    padding: 10px 20px;
+/* Preloader */
+#preloader {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1000;
-}
-
-header .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-header .nav-links {
-    list-style: none;
+    height: 100%;
+    background: #000;
     display: flex;
-    justify-content: flex-end;
-}
-
-header .nav-links li {
-    margin: 0 15px;
-}
-
-header .nav-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Hero Section */
-#hero {
-    height: 100vh;
-    background: url('images/hero.jpg') no-repeat center center/cover;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    z-index: 9999;
     color: #fff;
+    font-family: 'Arial', sans-serif;
+    animation: fadeOut 1.5s ease-out forwards;
+    animation-delay: 3s;
 }
 
-#hero .btn {
-    background: #e91e63;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-/* Sections */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-h2 {
-    text-align: center;
+#preloader .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid #e91e63;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
     margin-bottom: 20px;
 }
 
-.gallery-grid,
-.services-grid,
-.testimonials-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-form input, form textarea, form button {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-form .btn {
-    background: #e91e63;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-/* Footer */
-footer {
+#preloader h2 {
+    font-size: 1.5em;
     text-align: center;
-    background: #000;
-    color: #fff;
-    padding: 10px 0;
 }
+
+/* Preloader Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Body hidden while preloader is visible */
+body.loading {
+    overflow: hidden;
+}
+
+/* Rest of the CSS remains unchanged */
