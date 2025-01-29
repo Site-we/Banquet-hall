@@ -1,15 +1,22 @@
-// Wait for the window to fully load
-window.addEventListener('load', () => {
-    // Remove the preloader after a delay
-    const preloader = document.getElementById('preloader');
-    document.body.classList.remove('loading');
-    setTimeout(() => {
-        preloader.style.display = 'none';
-    }, 3000); // Matches animation delay in CSS
-});
+let index = 0;
 
-// Handle form submission
-document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Message sent! We will get back to you soon.');
-});
+function moveSlide(step) {
+    const slider = document.querySelector('.slider');
+    const images = document.querySelectorAll('.slider img');
+    const totalImages = images.length;
+
+    index += step;
+
+    // Loop the slider
+    if (index >= totalImages) {
+        index = 0;
+    } else if (index < 0) {
+        index = totalImages - 1;
+    }
+
+    let translateValue = -index * 100 + "%";
+    slider.style.transform = "translateX(" + translateValue + ")";
+}
+
+// Auto Slide Function
+setInterval(() => moveSlide(1), 3000);
