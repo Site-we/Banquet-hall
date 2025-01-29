@@ -14,9 +14,18 @@
         <p>Creating Unforgettable Moments</p>
     </header>
 
-    <!-- Banquet Hall Image -->
-    <section class="hero">
-        <img src="images/banquet-hall.jpg" alt="Grand Vision Planners Hall">
+    <!-- Image Slider -->
+    <section class="image-slider">
+        <div class="slider-container">
+            <div class="slider">
+                <img src="images/banquet1.jpg" alt="Banquet Hall 1">
+                <img src="images/banquet2.jpg" alt="Banquet Hall 2">
+                <img src="images/banquet3.jpg" alt="Banquet Hall 3">
+                <img src="images/banquet4.jpg" alt="Banquet Hall 4">
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </section>
 
     <!-- Services Section -->
@@ -26,17 +35,6 @@
             <li><strong>Wedding Planning:</strong> Full, Partial, or Day-of Coordination</li>
             <li><strong>Event Planning:</strong> Corporate, Social, and Luxury Events</li>
             <li><strong>Custom Add-Ons:</strong> Décor, Invitations, Photo Booths, & More</li>
-        </ul>
-    </section>
-
-    <!-- Wedding Food Menu Section -->
-    <section class="food-menu">
-        <h2>Wedding Food Menu</h2>
-        <ul>
-            <li><strong>Appetizers:</strong> Paneer Tikka, Samosa, Chicken Kebab</li>
-            <li><strong>Main Course:</strong> Butter Chicken, Dal Tadka, Chole Bhature</li>
-            <li><strong>Desserts:</strong> Gulab Jamun, Jalebi, Kheer</li>
-            <li><strong>Live Counters:</strong> Chaat, Tandoor, Dosa</li>
         </ul>
     </section>
 
@@ -53,5 +51,6 @@
         <p>&copy; 2025 Grand Vision Planners | All Rights Reserved</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
