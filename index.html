@@ -3,149 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banquet Hall</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        h1, h2 {
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        section {
-            padding: 50px 0;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: auto;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-    </style>
+    <title>Grand Vision Planners</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>Banquet Hall</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Grand Vision Planners</h1>
+        <p>Creating Unforgettable Moments</p>
     </header>
 
-    <section id="home">
-        <div class="container">
-            <h2>Welcome to Our Banquet Hall</h2>
-            <p>Perfect place for your events and celebrations.</p>
-        </div>
+    <!-- Banquet Hall Image -->
+    <section class="hero">
+        <img src="images/banquet-hall.jpg" alt="Grand Vision Planners Hall">
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>We offer a beautiful venue for weddings, parties, and corporate events.</p>
-        </div>
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li><strong>Wedding Planning:</strong> Full, Partial, or Day-of Coordination</li>
+            <li><strong>Event Planning:</strong> Corporate, Social, and Luxury Events</li>
+            <li><strong>Custom Add-Ons:</strong> Décor, Invitations, Photo Booths, & More</li>
+        </ul>
     </section>
 
-    <section id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Wedding Receptions</li>
-                <li>Corporate Events</li>
-                <li>Birthday Parties</li>
-                <li>Custom Catering</li>
-            </ul>
-        </div>
+    <!-- Wedding Food Menu Section -->
+    <section class="food-menu">
+        <h2>Wedding Food Menu</h2>
+        <ul>
+            <li><strong>Appetizers:</strong> Paneer Tikka, Samosa, Chicken Kebab</li>
+            <li><strong>Main Course:</strong> Butter Chicken, Dal Tadka, Chole Bhature</li>
+            <li><strong>Desserts:</strong> Gulab Jamun, Jalebi, Kheer</li>
+            <li><strong>Live Counters:</strong> Chaat, Tandoor, Dosa</li>
+        </ul>
     </section>
 
-    <section id="gallery">
-        <div class="container">
-            <h2>Gallery</h2>
-            <div class="gallery-grid">
-                <img src="https://via.placeholder.com/350x200" alt="Event 1">
-                <img src="https://via.placeholder.com/350x200" alt="Event 2">
-                <img src="https://via.placeholder.com/350x200" alt="Event 3">
-                <img src="https://via.placeholder.com/350x200" alt="Event 4">
-            </div>
-        </div>
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: +123-456-7890</p>
+        <p>Email: info@grandvisionplanners.com</p>
+        <p>Website: <a href="#">www.grandvisionplanners.com</a></p>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Banquet Hall. All Rights Reserved.</p>
-        </div>
+        <p>&copy; 2025 Grand Vision Planners | All Rights Reserved</p>
     </footer>
 
-    <script>
-        // Add any JavaScript functionality here
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("Website loaded successfully!");
-        });
-    </script>
 </body>
 </html>
