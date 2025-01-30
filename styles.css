@@ -12,6 +12,8 @@ header {
     background: #1d557d;
     color: white;
     padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 /* Image Slider */
@@ -19,6 +21,7 @@ header {
     overflow: hidden;
     width: 100%;
     position: relative;
+    border-radius: 10px;
 }
 
 .slider-container {
@@ -26,6 +29,7 @@ header {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    border-radius: 10px;
 }
 
 .slider {
@@ -37,11 +41,16 @@ header {
     max-width: 100%;
     scroll-snap-align: start;
     transition: transform 0.5s ease-in-out;
+    border-radius: 10px;
 }
 
 /* Food Menu */
-.food-menu {
+.food-menu, .services, .contact {
+    background: white;
     margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu-preview {
@@ -63,15 +72,11 @@ header {
     margin-top: 10px;
 }
 
-/* Contact Section */
-.contact {
-    margin: 20px;
-}
-
 /* Footer */
 footer {
     background: #1d557d;
     color: white;
     padding: 10px;
     margin-top: 20px;
+    border-radius: 10px;
 }
