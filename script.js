@@ -1,48 +1,62 @@
-const slider = document.querySelector('.slider-container');
-let isDown = false;
-let startX;
-let scrollLeft;
+document.addEventListener("DOMContentLoaded", function () {
+    // Food Menu Toggle
+    const menuBtn = document.getElementById("view-menu-btn");
+    const menuFull = document.getElementById("menu-full");
 
-// Mouse & Touch Events
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
+    menuBtn.addEventListener("click", () => {
+        if (menuFull.style.display === "none" || menuFull.style.display === "") {
+            menuFull.style.display = "block";
+            menuBtn.textContent = "Hide Menu";
+        } else {
+            menuFull.style.display = "none";
+            menuBtn.textContent = "View Full Menu";
+        }
+    });
 
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('active');
-});
+    // Image Slider (Swipe Support)
+    const sliderContainer = document.querySelector(".slider-container");
+    let isDragging = false;
+    let startX, scrollLeft;
 
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.classList.remove('active');
-});
+    sliderContainer.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX - sliderContainer.offsetLeft;
+        scrollLeft = sliderContainer.scrollLeft;
+    });
 
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust scroll speed
-    slider.scrollLeft = scrollLeft - walk;
-});
+    sliderContainer.addEventListener("mouseleave", () => {
+        isDragging = false;
+    });
 
-// Touch Events (for mobile)
-slider.addEventListener('touchstart', (e) => {
-    isDown = true;
-    startX = e.touches[0].clientX;
-    scrollLeft = slider.scrollLeft;
-});
+    sliderContainer.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
 
-slider.addEventListener('touchend', () => {
-    isDown = false;
-});
+    sliderContainer.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - sliderContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Adjust speed
+        sliderContainer.scrollLeft = scrollLeft - walk;
+    });
 
-slider.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    const x = e.touches[0].clientX;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
+    // Touch Support for Mobile
+    let touchStartX = 0;
+    let touchScrollLeft = 0;
+
+    sliderContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].pageX - sliderContainer.offsetLeft;
+        touchScrollLeft = sliderContainer.scrollLeft;
+    });
+
+    sliderContainer.addEventListener("touchmove", (e) => {
+        if (!touchStartX) return;
+        const x = e.touches[0].pageX - sliderContainer.offsetLeft;
+        const walk = (x - touchStartX) * 2;
+        sliderContainer.scrollLeft = touchScrollLeft - walk;
+    });
+
+    sliderContainer.addEventListener("touchend", () => {
+        touchStartX = 0;
+    });
 });
