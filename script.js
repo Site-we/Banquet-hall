@@ -69,17 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Infinite Scrolling Logic
     function checkScroll() {
-        if (sliderContainer.scrollLeft >= slider.scrollWidth - sliderContainer.clientWidth) {
+        if (sliderContainer.scrollLeft >= slider.scrollWidth / 2) {
             sliderContainer.scrollLeft = 0;
         } else if (sliderContainer.scrollLeft <= 0) {
-            sliderContainer.scrollLeft = slider.scrollWidth - sliderContainer.clientWidth;
+            sliderContainer.scrollLeft = slider.scrollWidth / 2;
         }
     }
 
     // Auto Scroll Every 3 Seconds
     function autoScroll() {
         if (!isDragging) {
-            sliderContainer.scrollLeft += sliderContainer.clientWidth;
+            const imageWidth = sliderContainer.clientWidth / images.length;
+            sliderContainer.scrollLeft += imageWidth;
             checkScroll();
         }
     }
