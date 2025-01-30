@@ -15,8 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Image Slider (Improved Swiping)
     const sliderContainer = document.querySelector(".slider-container");
+    const slider = document.querySelector(".slider");
+
+    // Clone the first and last images
+    const firstImage = slider.firstElementChild.cloneNode(true);
+    const lastImage = slider.lastElementChild.cloneNode(true);
+    slider.appendChild(firstImage);
+    slider.insertBefore(lastImage, slider.firstElementChild);
+
     let isDragging = false;
     let startX, scrollLeft;
+
+    // Adjust the scroll position to show the first image
+    sliderContainer.scrollLeft = sliderContainer.offsetWidth;
 
     sliderContainer.addEventListener("mousedown", (e) => {
         isDragging = true;
@@ -61,9 +72,15 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => {
         if (!isDragging) {
             sliderContainer.scrollLeft += sliderContainer.clientWidth;
-            if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
-                sliderContainer.scrollLeft = 0;
-            }
         }
     }, 3000);
+
+    // Infinite scroll logic
+    sliderContainer.addEventListener("scroll", () => {
+        if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.offsetWidth) {
+            sliderContainer.scrollLeft = sliderContainer.offsetWidth;
+        } else if (sliderContainer.scrollLeft <= 0) {
+            sliderContainer.scrollLeft = sliderContainer.scrollWidth - 2 * sliderContainer.offsetWidth;
+        }
+    });
 });
