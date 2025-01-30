@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Infinite Scrolling Logic
     function checkScroll() {
-        if (sliderContainer.scrollLeft >= slider.scrollWidth / 2) {
+        if (sliderContainer.scrollLeft >= slider.scrollWidth - sliderContainer.clientWidth) {
             sliderContainer.scrollLeft = 0;
         } else if (sliderContainer.scrollLeft <= 0) {
-            sliderContainer.scrollLeft = slider.scrollWidth / 2;
+            sliderContainer.scrollLeft = slider.scrollWidth - sliderContainer.clientWidth;
         }
     }
 
