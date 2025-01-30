@@ -12,8 +12,8 @@ header {
     background: #1d557d;
     color: white;
     padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
+    margin: 0;
+    border-radius: 0;
 }
 
 /* Image Slider */
@@ -21,7 +21,6 @@ header {
     overflow: hidden;
     width: 100%;
     position: relative;
-    border-radius: 10px;
 }
 
 .slider-container {
@@ -29,19 +28,19 @@ header {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    border-radius: 10px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .slider {
     display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .slider img {
     width: 100%;
-    max-width: 100%;
+    flex: 0 0 100%;
     scroll-snap-align: start;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 10px;
+    user-select: none;
 }
 
 /* Food Menu */
@@ -51,11 +50,6 @@ header {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.menu-preview {
-    font-size: 16px;
-    margin-bottom: 10px;
 }
 
 #view-menu-btn {
@@ -78,5 +72,5 @@ footer {
     color: white;
     padding: 10px;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 0;
 }
