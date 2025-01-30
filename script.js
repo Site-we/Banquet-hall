@@ -68,4 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }, 3000);
+
+    // Scroll Last Image Instantly
+    sliderContainer.addEventListener("scroll", () => {
+        if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+            sliderContainer.style.scrollBehavior = "auto";
+            sliderContainer.scrollLeft = 0;
+            sliderContainer.style.scrollBehavior = "smooth";
+        }
+    });
 });
