@@ -16,52 +16,56 @@ header {
 
 /* Image Slider */
 .image-slider {
-    width: 90%;
-    margin: auto;
     overflow: hidden;
-    border-radius: 10px;
+    width: 100%;
+    position: relative;
 }
 
 .slider-container {
     display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
-    cursor: grab;
-    scrollbar-width: none; /* Hides scrollbar in Firefox */
-    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
-}
-
-.slider-container::-webkit-scrollbar {
-    display: none; /* Hides scrollbar in Chrome/Safari */
+    scroll-behavior: smooth;
 }
 
 .slider {
     display: flex;
-    transition: transform 0.3s ease-in-out;
 }
 
 .slider img {
     width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    user-select: none;
-    pointer-events: none;
+    max-width: 100%;
     scroll-snap-align: start;
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Services & Contact */
-section {
-    padding: 20px;
+/* Food Menu */
+.food-menu {
     margin: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact */
-.contact a {
-    color: #1d557d;
-    text-decoration: none;
+.menu-preview {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#view-menu-btn {
+    background: #1d557d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menu-full {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Contact Section */
+.contact {
+    margin: 20px;
 }
 
 /* Footer */
