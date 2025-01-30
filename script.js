@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Image Slider (Swipe + Auto Scroll)
+    // Image Slider (Improved Swiping)
     const sliderContainer = document.querySelector(".slider-container");
     let isDragging = false;
     let startX, scrollLeft;
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isDragging = true;
         startX = e.pageX - sliderContainer.offsetLeft;
         scrollLeft = sliderContainer.scrollLeft;
+        sliderContainer.style.scrollBehavior = "auto";
     });
 
     sliderContainer.addEventListener("mouseleave", () => {
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sliderContainer.addEventListener("mouseup", () => {
         isDragging = false;
+        sliderContainer.style.scrollBehavior = "smooth";
     });
 
     sliderContainer.addEventListener("mousemove", (e) => {
@@ -45,21 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
     let touchScrollLeft = 0;
 
     sliderContainer.addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].pageX - sliderContainer.offsetLeft;
+        touchStartX = e.touches[0].pageX;
         touchScrollLeft = sliderContainer.scrollLeft;
     });
 
     sliderContainer.addEventListener("touchmove", (e) => {
-        const x = e.touches[0].pageX - sliderContainer.offsetLeft;
+        const x = e.touches[0].pageX;
         const walk = (x - touchStartX) * 2;
         sliderContainer.scrollLeft = touchScrollLeft - walk;
     });
 
     // Auto Scroll Every 3 Seconds
     setInterval(() => {
-        sliderContainer.scrollLeft += sliderContainer.clientWidth;
-        if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
-            sliderContainer.scrollLeft = 0;
+        if (!isDragging) {
+            sliderContainer.scrollLeft += sliderContainer.clientWidth;
+            if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+                sliderContainer.scrollLeft = 0;
+            }
         }
     }, 3000);
 });
