@@ -1,26 +1,4 @@
-let index = 0;
-
-function moveSlide(step) {
-    const slider = document.querySelector('.slider');
-    const images = document.querySelectorAll('.slider img');
-    const totalImages = images.length;
-
-    index += step;
-
-    // Loop the slider
-    if (index >= totalImages) {
-        index = 0;
-    } else if (index < 0) {
-        index = totalImages - 1;
-    }
-
-    let translateValue = -index * 100 + "%";
-    slider.style.transform = "translateX(" + translateValue + ")";
-}
-
-// Auto Slide Function
-setInterval(() => moveSlide(1), 3000);
-const slider = document.querySelector('.slider');
+const slider = document.querySelector('.slider-container');
 let isDown = false;
 let startX;
 let scrollLeft;
@@ -28,23 +6,26 @@ let scrollLeft;
 // Mouse & Touch Events
 slider.addEventListener('mousedown', (e) => {
     isDown = true;
+    slider.classList.add('active');
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
 });
 
 slider.addEventListener('mouseleave', () => {
     isDown = false;
+    slider.classList.remove('active');
 });
 
 slider.addEventListener('mouseup', () => {
     isDown = false;
+    slider.classList.remove('active');
 });
 
 slider.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed
+    const walk = (x - startX) * 2; // Adjust scroll speed
     slider.scrollLeft = scrollLeft - walk;
 });
 
