@@ -24,8 +24,15 @@ header {
 
 .slider-container {
     display: flex;
-    overflow: hidden;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory;
     cursor: grab;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome/Safari */
 }
 
 .slider {
@@ -39,6 +46,7 @@ header {
     object-fit: cover;
     user-select: none;
     pointer-events: none;
+    scroll-snap-align: start;
 }
 
 /* Services & Contact */
