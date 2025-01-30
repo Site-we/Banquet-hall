@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Image Slider (Swipe Support)
+    // Image Slider (Swipe + Auto Scroll)
     const sliderContainer = document.querySelector(".slider-container");
     let isDragging = false;
     let startX, scrollLeft;
@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - sliderContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Adjust speed
+        const walk = (x - startX) * 2;
         sliderContainer.scrollLeft = scrollLeft - walk;
     });
 
-    // Touch Support for Mobile
+    // Touch Support
     let touchStartX = 0;
     let touchScrollLeft = 0;
 
@@ -50,13 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     sliderContainer.addEventListener("touchmove", (e) => {
-        if (!touchStartX) return;
         const x = e.touches[0].pageX - sliderContainer.offsetLeft;
         const walk = (x - touchStartX) * 2;
         sliderContainer.scrollLeft = touchScrollLeft - walk;
     });
 
-    sliderContainer.addEventListener("touchend", () => {
-        touchStartX = 0;
-    });
+    // Auto Scroll Every 3 Seconds
+    setInterval(() => {
+        sliderContainer.scrollLeft += sliderContainer.clientWidth;
+        if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+            sliderContainer.scrollLeft = 0;
+        }
+    }, 3000);
 });
