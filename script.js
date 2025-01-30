@@ -62,7 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isDragging) {
             sliderContainer.scrollLeft += sliderContainer.clientWidth;
             if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+                sliderContainer.style.scrollBehavior = "auto";
                 sliderContainer.scrollLeft = 0;
+                sliderContainer.style.scrollBehavior = "smooth";
             }
         }
     }, 3000);
