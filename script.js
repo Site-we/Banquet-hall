@@ -75,12 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 3000);
 
-    // Infinite scroll logic
+    // Infinite scroll logic with seamless transition
     sliderContainer.addEventListener("scroll", () => {
-        if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.offsetWidth) {
+        if (sliderContainer.scrollLeft >= slider.scrollWidth - sliderContainer.offsetWidth) {
             sliderContainer.scrollLeft = sliderContainer.offsetWidth;
         } else if (sliderContainer.scrollLeft <= 0) {
-            sliderContainer.scrollLeft = sliderContainer.scrollWidth - 2 * sliderContainer.offsetWidth;
+            sliderContainer.scrollLeft = slider.scrollWidth - 2 * sliderContainer.offsetWidth;
         }
     });
 });
