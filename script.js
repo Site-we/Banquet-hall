@@ -13,21 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Image Slider - Infinite Scrolling
+    // Image Slider (Improved Swiping)
     const sliderContainer = document.querySelector(".slider-container");
-    const slider = document.querySelector(".slider");
-    let images = document.querySelectorAll(".slider img");
-
-    // Clone images for seamless looping
-    images.forEach((img) => {
-        let clone = img.cloneNode(true);
-        slider.appendChild(clone);
-    });
-
     let isDragging = false;
     let startX, scrollLeft;
 
-    // Mouse Dragging
     sliderContainer.addEventListener("mousedown", (e) => {
         isDragging = true;
         startX = e.pageX - sliderContainer.offsetLeft;
@@ -52,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sliderContainer.scrollLeft = scrollLeft - walk;
     });
 
-    // Touch Support for Swiping
+    // Touch Support
     let touchStartX = 0;
     let touchScrollLeft = 0;
 
@@ -67,26 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
         sliderContainer.scrollLeft = touchScrollLeft - walk;
     });
 
-    // Infinite Scrolling Logic
-    function checkScroll() {
-        if (sliderContainer.scrollLeft >= slider.scrollWidth / 2) {
-            sliderContainer.scrollLeft = 0;
-        } else if (sliderContainer.scrollLeft <= 0) {
-            sliderContainer.scrollLeft = slider.scrollWidth / 2;
-        }
-    }
-
     // Auto Scroll Every 3 Seconds
-    function autoScroll() {
+    setInterval(() => {
         if (!isDragging) {
-            const imageWidth = sliderContainer.clientWidth / images.length;
-            sliderContainer.scrollLeft += imageWidth;
-            checkScroll();
+            sliderContainer.scrollLeft += sliderContainer.clientWidth;
+            if (sliderContainer.scrollLeft >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+                sliderContainer.scrollLeft = 0;
+            }
         }
-    }
-
-    setInterval(autoScroll, 3000);
-
-    // Listen for manual scroll and loop it infinitely
-    sliderContainer.addEventListener("scroll", checkScroll);
+    }, 3000);
 });
